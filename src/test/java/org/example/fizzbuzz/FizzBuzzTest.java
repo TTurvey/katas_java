@@ -14,4 +14,11 @@ class FizzBuzzTest {
         assertEquals("1", result);
     }
 
+    @Test
+    public void should_return_Fizz_if_divisible_by_3(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.translate(3);
+        assertEquals("Fizz", result);
+    }
+
 }
