@@ -21,4 +21,11 @@ class FizzBuzzTest {
         assertEquals("Fizz", result);
     }
 
+    @Test
+    public void should_return_Buzz_if_divisible_by_5(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.translate(5);
+        assertEquals("Buzz", result);
+    }
+
 }
