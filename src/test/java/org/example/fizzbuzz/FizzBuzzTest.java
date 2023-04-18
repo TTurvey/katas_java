@@ -35,4 +35,12 @@ class FizzBuzzTest {
         assertEquals("FizzBuzz", result);
     }
 
+    @Test
+    public void should_call_translate_once_per_integer_in_range_from_1_to_input(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.execute(15);
+        String expected = "1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz";
+        assertEquals(expected, result);
+    }
+
 }
