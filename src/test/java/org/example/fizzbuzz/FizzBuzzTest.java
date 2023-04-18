@@ -28,4 +28,11 @@ class FizzBuzzTest {
         assertEquals("Buzz", result);
     }
 
+    @Test
+    public void should_return_FizzBuzz_if_divisible_by_3_and_5(){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.translate(15);
+        assertEquals("FizzBuzz", result);
+    }
+
 }
