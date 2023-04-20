@@ -23,7 +23,8 @@ class RomanNumeralsTest {
             "2, II",
             "3, III",
             "4, IV",
-            "5, V"
+            "5, V",
+            "6, VI"
     })
     public void should_return_true_if_number_is_in_row_already(int number, String roman) {
         assertEquals(roman, romanNumerals.translate(number));
