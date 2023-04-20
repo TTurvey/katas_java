@@ -21,7 +21,8 @@ class RomanNumeralsTest {
     @CsvSource({
             "1, I",
             "2, II",
-            "3, III"
+            "3, III",
+            "4, IV"
     })
     public void should_return_true_if_number_is_in_row_already(int number, String roman) {
         assertEquals(roman, romanNumerals.translate(number));
