@@ -15,4 +15,13 @@ class RomanNumeralsTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void
+    returns_II_when_given_2() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        String expected = "II";
+        String actual = romanNumerals.translate(2);
+        assertEquals(expected, actual);
+    }
+
 }
