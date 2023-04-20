@@ -4,12 +4,11 @@ public class RomanNumerals {
 
 
     public String translate(int i) {
-        if (i == 3) {
-            return "III";
+        String roman = "";
+        while (i > 0) {
+            roman += "I";
+            i -= 1;
         }
-        if (i == 2) {
-            return "II";
-        }
-        return "I";
+        return roman;
     }
 }
