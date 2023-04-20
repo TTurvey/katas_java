@@ -24,4 +24,13 @@ class RomanNumeralsTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void
+    returns_III_when_given_3() {
+        RomanNumerals romanNumerals = new RomanNumerals();
+        String expected = "III";
+        String actual = romanNumerals.translate(3);
+        assertEquals(expected, actual);
+    }
+
 }
