@@ -5,7 +5,7 @@ public class RomanNumerals {
 
     public String translate(int i) {
         String roman = "";
-        if (i >= 10) {
+        while (i >= 10) {
             roman += "X";
             i -= 10;
         }
