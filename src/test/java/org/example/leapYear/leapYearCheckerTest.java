@@ -13,4 +13,11 @@ class leapYearCheckerTest {
         assertFalse(leapYearChecker.evaluate(3));
     }
 
+    @Test
+    public void
+    returns_true_if_year_is_divisible_by_4() {
+        LeapYearChecker leapYearChecker = new LeapYearChecker();
+        assertTrue(leapYearChecker.evaluate(4));
+    }
+
 }
