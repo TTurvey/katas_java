@@ -5,7 +5,7 @@ public class RomanNumerals {
 
     public String translate(int i) {
         String roman = "";
-        if (i == 100) {
+        while (i >= 100) {
             roman += "C";
             i -= 100;
         }
