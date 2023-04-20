@@ -20,4 +20,11 @@ class leapYearCheckerTest {
         assertTrue(leapYearChecker.evaluate(4));
     }
 
+    @Test
+    public void
+    returns_true_if_year_is_divisible_by_400() {
+        LeapYearChecker leapYearChecker = new LeapYearChecker();
+        assertTrue(leapYearChecker.evaluate(400));
+    }
+
 }
