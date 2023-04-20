@@ -5,6 +5,22 @@ public class RomanNumerals {
 
     public String translate(int i) {
         String roman = "";
+        if (i == 100) {
+            roman += "C";
+            i -= 100;
+        }
+        if (i == 90) {
+            roman += "XC";
+            i -= 90;
+        }
+        if (i >= 50) {
+            roman += "L";
+            i -= 50;
+        }
+        if (i == 40) {
+            roman += "XL";
+            i -= 40;
+        }
         while (i >= 10) {
             roman += "X";
             i -= 10;

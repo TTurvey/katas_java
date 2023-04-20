@@ -1,8 +1,6 @@
 package org.example.romanNumerals;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -38,7 +36,18 @@ class RomanNumeralsTest {
             "17, XVII",
             "18, XVIII",
             "19, XIX",
-            "20, XX"
+            "20, XX",
+
+            "30, XXX",
+            "40, XL",
+            "50, L",
+            "60, LX",
+            "70, LXX",
+            "80, LXXX",
+            "90, XC",
+            "100, C"
+
+
     })
     public void should_return_true_if_number_is_in_row_already(int number, String roman) {
         assertEquals(roman, romanNumerals.translate(number));
