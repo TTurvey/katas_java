@@ -37,10 +37,14 @@ class RomanNumeralsTest {
             "90, XC",
             "100, C",
             "200, CC",
-            "300, CCC"
-
-
-
+            "300, CCC",
+            "400, CD",
+            "500, D",
+            "600, DC",
+            "700, DCC",
+            "800, DCCC",
+            "900, CM",
+            "1000, M"
     })
     public void should_return_true_if_number_is_in_row_already(int number, String roman) {
         assertEquals(roman, romanNumerals.translate(number));
