@@ -5,6 +5,10 @@ public class RomanNumerals {
 
     public String translate(int i) {
         String roman = "";
+        if (i == 5) {
+            roman += "V";
+            i -= 5;
+        }
         if (i == 4) {
             roman += "IV";
             i -= 4;
