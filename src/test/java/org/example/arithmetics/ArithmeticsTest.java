@@ -8,11 +8,16 @@ class ArithmeticsTest {
 
     @Test
     public void
-    returns_invalid_record_error_if_not_all_wrapped_in_parentheses() {
+    returns_invalid_record_exception_if_not_all_wrapped_in_parentheses() {
         Arithmetics arithmetics = new Arithmetics();
-        assertThrows(InvalidRecordException.class, () -> {
+
+        Exception exception = assertThrows(InvalidRecordException.class, () -> {
             arithmetics.execute("3 + ( 2 * 1 )");
         });
+        String expectedMessage = "Invalid record error";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
     }
 
 
