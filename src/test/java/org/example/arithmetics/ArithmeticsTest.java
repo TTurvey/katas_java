@@ -51,6 +51,18 @@ class ArithmeticsTest {
         assertEquals(output, actualValue);
     }
 
+    @Test
+    public void
+    returns_string_with_whitespace_removed() {
+        Arithmetics arithmetics = new Arithmetics();
+
+        String input = "( ( 1 + 2 ) * ( 3 - 4 ) ) / 6";
+        String expected = "((1+2)*(3-4))/6";
+        String actual = arithmetics.removeWhitespace(input);
+
+        assertEquals(expected, actual);
+    }
+
 
 
 }

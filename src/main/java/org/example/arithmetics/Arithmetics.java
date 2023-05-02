@@ -90,4 +90,8 @@ public class Arithmetics {
         return result;
     }
 
+    public String removeWhitespace(String string) {
+        return string.replaceAll(" ", "");
+    }
+
 }
