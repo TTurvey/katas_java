@@ -18,8 +18,7 @@ public class Arithmetics {
     public int execute(String input) throws InvalidRecordException {
 
         String[] arr = input.split(" ");
-        ArrayList<String> strList = new ArrayList<>(
-                Arrays.asList(arr));
+        ArrayList<String> strList = new ArrayList<>(Arrays.asList(arr));
 
         if (!strList.get(0).equals("(")) throw new InvalidRecordException("Invalid record error");
 
@@ -30,10 +29,16 @@ public class Arithmetics {
         }
 
         if (parentheses % 2 != 0) throw new InvalidRecordException("Invalid record error");
+
+        String infixExpression = removeWhitespace(input);
+        String postfixExpression = convertToPostfix(infixExpression);
         return 0;
     }
 
     public String convertToPostfix(String infixExpression) {
+        if (infixExpression.contains(" ")){
+            infixExpression = removeWhitespace(infixExpression);
+        }
 
         Stack< Character> operators = new Stack<>();
         Stack< String> postFix = new Stack<>();

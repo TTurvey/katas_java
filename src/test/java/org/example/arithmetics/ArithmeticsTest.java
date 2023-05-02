@@ -39,10 +39,11 @@ class ArithmeticsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1+2, 12+",
-            "3-4, 34-",
-            "5/6, 56/",
-            "7*8, 78*"
+            "1 + 2, 12+",
+            "3 - 4, 34-",
+            "5 / 6, 56/",
+            "7 * 8, 78*",
+            "( 1 + ( ( 2 + 3 ) * (4 * 5) ) ), 123+45**+"
     })
     public void converts_infix_to_postfix(String input, String output) {
         Arithmetics arithmetics = new Arithmetics();
