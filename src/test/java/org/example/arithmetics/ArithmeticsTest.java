@@ -1,6 +1,8 @@
 package org.example.arithmetics;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -34,13 +36,21 @@ class ArithmeticsTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
-    @Test
-    public void
-    returns_infix_to_postfix() {
-        Arithmetics arithmetics = new Arithmetics();
-        String infixExpression = "1+2";
-        String postfixExpression = arithmetics.convertToPostfix(infixExpression);
 
-        assertEquals("12+", postfixExpression);
+    @ParameterizedTest
+    @CsvSource({
+            "1+2, 12+",
+            "3-4, 34-",
+            "5/6, 56/",
+            "7*8, 78*"
+    })
+    public void converts_infix_to_postfix(String input, String output) {
+        Arithmetics arithmetics = new Arithmetics();
+        String actualValue = arithmetics.convertToPostfix(input);
+
+        assertEquals(output, actualValue);
     }
+
+
+
 }
