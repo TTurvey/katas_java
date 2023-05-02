@@ -34,5 +34,13 @@ class ArithmeticsTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Test
+    public void
+    returns_infix_to_postfix() {
+        Arithmetics arithmetics = new Arithmetics();
+        String infixExpression = "1+2";
+        String postfixExpression = arithmetics.convertToPostfix(infixExpression);
 
+        assertEquals("12+", postfixExpression);
+    }
 }
