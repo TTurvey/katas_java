@@ -28,7 +28,7 @@ class ArithmeticsTest {
         Arithmetics arithmetics = new Arithmetics();
 
         Exception exception = assertThrows(InvalidRecordException.class, () -> {
-            arithmetics.execute("(3 + (( 2 * 1 ))");
+            arithmetics.execute("(3 + ( ( 2 * 1 ) )");
         });
         String expectedMessage = "Invalid record error";
         String actualMessage = exception.getMessage();
@@ -64,6 +64,38 @@ class ArithmeticsTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "12+, 3.0",
+            "34-, -1.0",
+            "42/, 2.0",
+            "78*, 56.0",
+            "123+45**+, 101.0"
+    })
+    public void solve_postfix_expression(String input, String output) {
+        Arithmetics arithmetics = new Arithmetics();
+        String actualValue = arithmetics.solvePostfix(input);
+
+        assertEquals(output, actualValue);
+    }
+
+    @Test
+    public void
+    returns_true_if_string_is_numeric() {
+        Arithmetics arithmetics = new Arithmetics();
+        String input = "10";
+
+        assertTrue(arithmetics.isNumeric(input));
+    }
+
+    @Test
+    public void
+    returns_false_if_string_is_not_numeric() {
+        Arithmetics arithmetics = new Arithmetics();
+        String input = "+";
+
+        assertFalse(arithmetics.isNumeric(input));
+    }
 
 
 }

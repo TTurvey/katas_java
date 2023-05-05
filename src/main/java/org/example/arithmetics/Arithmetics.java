@@ -30,8 +30,8 @@ public class Arithmetics {
 
         if (parentheses % 2 != 0) throw new InvalidRecordException("Invalid record error");
 
-        String infixExpression = removeWhitespace(input);
-        String postfixExpression = convertToPostfix(infixExpression);
+        String postfixExpression = convertToPostfix(input);
+
         return 0;
     }
 
@@ -39,9 +39,6 @@ public class Arithmetics {
         if (infixExpression.contains(" ")){
             infixExpression = removeWhitespace(infixExpression);
         }
-
-        Stack< Character> operators = new Stack<>();
-        Stack< String> postFix = new Stack<>();
 
         // Initializing empty String for result
         String result = "";
@@ -98,5 +95,55 @@ public class Arithmetics {
     public String removeWhitespace(String string) {
         return string.replaceAll(" ", "");
     }
+
+    public String solvePostfix(String postfixExpression) {
+
+        String[] arr = postfixExpression.split("");
+        System.out.println(Arrays.asList(arr));
+        Stack<String> stack = new Stack<>();
+
+        for (int i = 0; i < arr.length; i++){
+//            if numeric then push to stack.
+            if (isNumeric(arr[i])) {
+                stack.push(arr[i]);
+                System.out.println(stack.toString());
+            }
+
+
+//            If not numeric then pop last two elements from stack
+//            and perform operation on them
+            if (!isNumeric(arr[i])){
+                String aString = stack.pop();
+                String bString = stack.pop();
+                Double a = Double.parseDouble(aString);
+                Double b = Double.parseDouble(bString);
+                Double c = 0.0;
+
+                if (arr[i].equals("+")) {c =  b + a;}
+                if (arr[i].equals("-")) {c =  b - a;}
+                if (arr[i].equals("/")) {c =  b / a;}
+                if (arr[i].equals("*")) {c =  b * a;}
+
+                String cString = String.valueOf(c);
+                stack.push(cString);
+                System.out.println(stack.toString());
+            }
+        }
+        String result = stack.peek();
+
+        return result;
+    }
+
+    public boolean isNumeric(String input) {
+        try {
+            double d = Double.parseDouble(input);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+
+
 
 }
