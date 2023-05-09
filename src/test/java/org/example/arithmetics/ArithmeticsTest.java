@@ -76,27 +76,6 @@ class ArithmeticsTest {
         assertEquals(expected, actualValue);
     }
 
-
-    @Test
-    public void
-    returns_true_if_string_is_numeric() {
-        Arithmetics arithmetics = new Arithmetics();
-        String input = "10";
-
-        assertTrue(arithmetics.isNumeric(input));
-    }
-
-
-    @Test
-    public void
-    returns_false_if_string_is_not_numeric() {
-        Arithmetics arithmetics = new Arithmetics();
-        String input = "+";
-
-        assertFalse(arithmetics.isNumeric(input));
-    }
-
-
     @ParameterizedTest
     @CsvSource({
             "12+, 3.0",

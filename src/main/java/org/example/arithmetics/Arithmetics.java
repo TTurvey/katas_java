@@ -145,13 +145,4 @@ public class Arithmetics {
         return stack.peek();
     }
 
-    public boolean isNumeric(String input) {
-        try {
-            Double.parseDouble(input);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
 }
