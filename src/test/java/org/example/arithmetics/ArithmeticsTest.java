@@ -105,7 +105,4 @@ class ArithmeticsTest {
         assertEquals(expected, actual);
     }
 
-
-
-
 }

@@ -63,28 +63,20 @@ public class Arithmetics {
             char c = infixExpression.charAt(i);
 
             // If the scanned char is an operand, add it to output.
-            if (Character.isLetterOrDigit(c)) {
-                result.append(c);}
-
+            if (Character.isLetterOrDigit(c)) {result.append(c);}
             // If the scanned char is an '(', push it to the stack.
             else if (c == '(') {stack.push(c);}
-
-            // If the scanned char is an ')'
-            // pop and output from the stack
-            // until an '(' is encountered.
+            // If the scanned char is ')', pop and output from the stack until an '(' is encountered.
             else if (c == ')') {
-                while (!stack.isEmpty()
-                        && stack.peek() != '(') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
                     result.append(stack.peek());
                     stack.pop();
                 }
                 stack.pop();
             }
-
             // An operator is encountered
             else {
-                while (!stack.isEmpty()
-                        && Precedence(c) <= Precedence(stack.peek())) {
+                while (!stack.isEmpty() && Precedence(c) <= Precedence(stack.peek())) {
                     result.append(stack.peek());
                     stack.pop();
                 }
@@ -110,11 +102,8 @@ public class Arithmetics {
     }
 
     public String solvePostfix(String postfixExpression) {
-        if (postfixExpression == "0") {
-            return "0.0";
-        }
+        if (postfixExpression.equals("0")) return "0.0";
 
-        String[] arr = postfixExpression.split("");
         Stack<String> stack = new Stack<>();
 
         for (int i = 0; i < postfixExpression.length(); ++i) {
@@ -137,8 +126,7 @@ public class Arithmetics {
                 if (ch == '/') solution = b / a;
                 if (ch == '*') solution = b * a;
 
-                String solString = String.valueOf(solution);
-                stack.push(solString);
+                stack.push(String.valueOf(solution));
             }
         }
 
