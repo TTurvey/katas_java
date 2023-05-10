@@ -17,7 +17,7 @@ class PasswordValidatorTest {
     public void
     returns_false_if_input_has_less_than_8_characters(String input, Boolean expected) {
         PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.checkLength(input);
+        Boolean actual = pv.isAtLeastEightChars(input);
         assertEquals(expected,actual);
     }
 
@@ -80,4 +80,17 @@ class PasswordValidatorTest {
         assertEquals(expected, actual);
     }
 
+
+    @ParameterizedTest
+    @CsvSource({
+            "Ab1_efgh, true",
+            "Ab1defgh, false",
+            ", false"
+    })
+    public void
+    returns_true_only_if_all_checks_are_true(String input, Boolean expected) {
+        PasswordValidator pv = new PasswordValidator();
+        Boolean actual = pv.checkPassword(input);
+        assertEquals(expected, actual);
+    }
 }

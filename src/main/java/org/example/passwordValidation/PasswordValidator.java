@@ -2,8 +2,24 @@ package org.example.passwordValidation;
 
 public class PasswordValidator {
 
+    public Boolean checkPassword(String input) {
+        if (input == null) return false;
 
-    public Boolean checkLength(String input) {
+        Boolean[] array = new Boolean[]{
+                isAtLeastEightChars(input),
+                containsCapital(input),
+                containsLower(input),
+                containsNumber(input),
+                containsUnderscore(input)
+        };
+
+        for(boolean value: array){
+            if(!value){ return false;}
+        }
+        return true;
+    }
+
+    public Boolean isAtLeastEightChars(String input) {
         return input.length() >= 8;
     }
 
@@ -33,6 +49,5 @@ public class PasswordValidator {
             if (c == '_') return true;
         }
         return false;
-
     }
 }
