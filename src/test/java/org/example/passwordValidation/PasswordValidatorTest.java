@@ -22,4 +22,12 @@ class PasswordValidatorTest {
         assertTrue(pv.check("abcdefghi"));
     }
 
+    @Test
+    public void
+    returns_false_if_input_has_less_than_8_characters() {
+        PasswordValidator pv = new PasswordValidator();
+
+        assertFalse(pv.check("abcdefg"));
+    }
+
 }
