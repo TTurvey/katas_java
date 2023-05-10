@@ -20,4 +20,11 @@ public class PasswordValidator {
         }
         return false;
     }
+
+    public Boolean containsNumber(String input) {
+        for(char c : input.toCharArray()) {
+            if (Character.isDigit(c)) return true;
+        }
+        return false;
+    }
 }

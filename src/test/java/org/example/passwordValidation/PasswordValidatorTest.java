@@ -54,4 +54,17 @@ class PasswordValidatorTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "Abcdefgh, false",
+            "Abcdefg1, true",
+            "Abcdef12, true"
+    })
+    public void
+    returns_true_if_input_has_at_least_one_number(String input, Boolean expected) {
+        PasswordValidator pv = new PasswordValidator();
+        Boolean actual = pv.containsNumber(input);
+        assertEquals(expected, actual);
+    }
+
 }
