@@ -109,11 +109,11 @@ public class Arithmetics {
         for (int i = 0; i < postfixExpression.length(); ++i) {
             char ch = postfixExpression.charAt(i);
 
-//            if numeric then push to stack.
+        //  if numeric then push to stack.
             if (Character.isLetterOrDigit(ch)) stack.push(String.valueOf(ch));
 
-//            If not numeric then pop last two elements from stack
-//            and perform operation on them
+        //  If not numeric then pop last two elements from stack
+        //  and perform operation on them
             if (!Character.isLetterOrDigit(ch)) {
                 String aString = stack.pop();
                 String bString = stack.pop();
