@@ -17,8 +17,28 @@ class PasswordValidatorTest {
     public void
     returns_false_if_input_has_less_than_8_characters(String input, Boolean expected) {
         PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.check(input);
+        Boolean actual = pv.checkLength(input);
         assertEquals(expected,actual);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "abcdefgh, false",
+            "Abcdefgh, true",
+            "aBcdefgh, true",
+            "abCdefgh, true",
+            "abcDefgh, true",
+            "abcdEfgh, true",
+            "abcdeFgh, true",
+            "abcdefGh, true",
+            "abcdefgH, true",
+            "ABCDEFGH, true"
+    })
+    public void
+    returns_true_if_input_has_at_least_one_capital() {
+        PasswordValidator pv = new PasswordValidator();
+        Boolean actual = pv.containsCapital("Abcdefgh");
+        assertTrue(actual);
     }
 
 }
