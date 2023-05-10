@@ -35,10 +35,23 @@ class PasswordValidatorTest {
             "ABCDEFGH, true"
     })
     public void
-    returns_true_if_input_has_at_least_one_capital() {
+    returns_true_if_input_has_at_least_one_capital(String input, Boolean expected) {
         PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.containsCapital("Abcdefgh");
-        assertTrue(actual);
+        Boolean actual = pv.containsCapital(input);
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "ABCDEFGH, false",
+            "ABCDEFGh, true",
+            "ABCDEFgh, true"
+    })
+    public void
+    returns_true_if_input_has_at_least_one_lowercase(String input, Boolean expected) {
+        PasswordValidator pv = new PasswordValidator();
+        Boolean actual = pv.containsLower(input);
+        assertEquals(expected, actual);
     }
 
 }
