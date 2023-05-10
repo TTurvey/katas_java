@@ -1,33 +1,24 @@
 package org.example.passwordValidation;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordValidatorTest {
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({
+            "abcdefg, false",
+            "abcdefgh, true",
+            "abcdefghi, true"
+    })
     public void
-    returns_true_if_input_has_8_characters() {
+    returns_false_if_input_has_less_than_8_characters(String input, Boolean expected) {
         PasswordValidator pv = new PasswordValidator();
-
-        assertTrue(pv.check("abcdefgh"));
-    }
-
-    @Test
-    public void
-    returns_true_if_input_has_more_than_8_characters() {
-        PasswordValidator pv = new PasswordValidator();
-
-        assertTrue(pv.check("abcdefghi"));
-    }
-
-    @Test
-    public void
-    returns_false_if_input_has_less_than_8_characters() {
-        PasswordValidator pv = new PasswordValidator();
-
-        assertFalse(pv.check("abcdefg"));
+        Boolean actual = pv.check(input);
+        assertEquals(expected,actual);
     }
 
 }
