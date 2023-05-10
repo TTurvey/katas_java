@@ -67,4 +67,17 @@ class PasswordValidatorTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "A1cdefgh, false",
+            "A1cdefg_, true",
+            "A1cdef__, true"
+    })
+    public void
+    returns_true_if_input_has_at_least_one_underscore(String input, Boolean expected) {
+        PasswordValidator pv = new PasswordValidator();
+        Boolean actual = pv.containsUnderscore(input);
+        assertEquals(expected, actual);
+    }
+
 }

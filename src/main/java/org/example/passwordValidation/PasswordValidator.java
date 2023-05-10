@@ -27,4 +27,12 @@ public class PasswordValidator {
         }
         return false;
     }
+
+    public Boolean containsUnderscore(String input) {
+        for(char c : input.toCharArray()) {
+            if (c == '_') return true;
+        }
+        return false;
+
+    }
 }
