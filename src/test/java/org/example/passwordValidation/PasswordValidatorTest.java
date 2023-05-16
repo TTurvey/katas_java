@@ -16,8 +16,8 @@ class PasswordValidatorTest {
     })
     public void
     returns_false_if_input_has_less_than_8_characters(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.isAtLeastEightChars(input);
+        PasswordValidator pv = new Validator1();
+        Boolean actual = pv.checkLength(input);
         assertEquals(expected,actual);
     }
 
@@ -36,8 +36,8 @@ class PasswordValidatorTest {
     })
     public void
     returns_true_if_input_has_at_least_one_capital(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.containsCapital(input);
+        PasswordValidator pv = new Validator1();
+        Boolean actual = pv.checkUppercase(input);
         assertEquals(expected, actual);
     }
 
@@ -49,8 +49,8 @@ class PasswordValidatorTest {
     })
     public void
     returns_true_if_input_has_at_least_one_lowercase(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.containsLower(input);
+        PasswordValidator pv = new Validator1();
+        Boolean actual = pv.checkLowercase(input);
         assertEquals(expected, actual);
     }
 
@@ -62,8 +62,8 @@ class PasswordValidatorTest {
     })
     public void
     returns_true_if_input_has_at_least_one_number(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.containsNumber(input);
+        PasswordValidator pv = new Validator1();
+        Boolean actual = pv.checkNumber(input);
         assertEquals(expected, actual);
     }
 
@@ -75,8 +75,8 @@ class PasswordValidatorTest {
     })
     public void
     returns_true_if_input_has_at_least_one_underscore(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
-        Boolean actual = pv.containsUnderscore(input);
+        PasswordValidator pv = new Validator1();
+        Boolean actual = pv.checkUnderscore(input);
         assertEquals(expected, actual);
     }
 
@@ -89,7 +89,7 @@ class PasswordValidatorTest {
     })
     public void
     returns_true_only_if_all_checks_are_true(String input, Boolean expected) {
-        PasswordValidator pv = new PasswordValidator();
+        PasswordValidator pv = new Validator1();
         Boolean actual = pv.checkPassword(input);
         assertEquals(expected, actual);
     }

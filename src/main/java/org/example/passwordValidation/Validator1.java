@@ -1,16 +1,16 @@
 package org.example.passwordValidation;
 
-public class PasswordValidator {
+public class Validator1 implements PasswordValidator {
 
     public Boolean checkPassword(String input) {
         if (input == null) return false;
 
         Boolean[] array = new Boolean[]{
-                isAtLeastEightChars(input),
-                containsCapital(input),
-                containsLower(input),
-                containsNumber(input),
-                containsUnderscore(input)
+                checkLength(input),
+                checkUppercase(input),
+                checkLowercase(input),
+                checkNumber(input),
+                checkUnderscore(input)
         };
 
         for(boolean value: array){
@@ -19,32 +19,32 @@ public class PasswordValidator {
         return true;
     }
 
-    public Boolean isAtLeastEightChars(String input) {
+    public Boolean checkLength(String input) {
         return input.length() >= 8;
     }
 
-    public Boolean containsCapital(String input) {
+    public Boolean checkUppercase(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isUpperCase(c)) return true;
         }
         return false;
     }
 
-    public Boolean containsLower(String input) {
+    public Boolean checkLowercase(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isLowerCase(c)) return true;
         }
         return false;
     }
 
-    public Boolean containsNumber(String input) {
+    public Boolean checkNumber(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isDigit(c)) return true;
         }
         return false;
     }
 
-    public Boolean containsUnderscore(String input) {
+    public Boolean checkUnderscore(String input) {
         for(char c : input.toCharArray()) {
             if (c == '_') return true;
         }
