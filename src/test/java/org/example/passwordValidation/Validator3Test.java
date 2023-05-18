@@ -6,23 +6,23 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Validator2Test {
+class Validator3Test {
 
     PasswordValidator pv;
 
     @BeforeEach
     void init() {
-        this.pv = new Validator2();
+        this.pv = new Validator3();
     }
 
     @ParameterizedTest
     @CsvSource({
-            "abcde, false",
-            "abcdef, true",
-            "abcdefg, true"
+            "abcdefghijklmno, false",
+            "abcdefghijklmnop, true",
+            "abcdefghijklmnopq, true",
     })
     public void
-    returns_false_if_input_has_less_than_6_characters(String input, Boolean expected) {
+    returns_false_if_input_has_less_than_16_characters(String input, Boolean expected) {
         Boolean actual = pv.checkLength(input);
         assertEquals(expected, actual);
     }
@@ -56,19 +56,19 @@ class Validator2Test {
     @ParameterizedTest
     @CsvSource({
             "ab, false",
-            "a1, true",
-            "12, true"
+            "a_, true",
+            "__, true"
     })
     public void
-    returns_true_if_input_has_at_least_one_number(String input, Boolean expected) {
-        Boolean actual = pv.checkNumber(input);
+    returns_true_if_input_has_at_least_one_underscore(String input, Boolean expected) {
+        Boolean actual = pv.checkUnderscore(input);
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvSource({
-            "Abcde1, true",
-            "Abcdef, false",
+            "Abcdefghijklmn_1, true",
+            "Abcdefghijklmn_, false",
             ", false"
     })
     public void

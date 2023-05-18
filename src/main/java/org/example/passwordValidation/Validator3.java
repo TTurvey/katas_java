@@ -1,6 +1,6 @@
 package org.example.passwordValidation;
 
-public class Validator2 implements PasswordValidator {
+public class Validator3 implements PasswordValidator {
 
     @Override
     public Boolean checkPassword(String input) {
@@ -10,7 +10,7 @@ public class Validator2 implements PasswordValidator {
                 checkLength(input),
                 checkUppercase(input),
                 checkLowercase(input),
-                checkNumber(input)
+                checkUnderscore(input)
         };
 
         for(boolean value: array){
@@ -21,7 +21,7 @@ public class Validator2 implements PasswordValidator {
 
     @Override
     public Boolean checkLength(String input) {
-        return input.length() >= 6;
+        return input.length() >= 16;
     }
 
     @Override
@@ -42,14 +42,14 @@ public class Validator2 implements PasswordValidator {
 
     @Override
     public Boolean checkNumber(String input) {
-        for(char c : input.toCharArray()) {
-            if (Character.isDigit(c)) return true;
-        }
-        return false;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Boolean checkUnderscore(String input) {
-        throw new UnsupportedOperationException();
+        for(char c : input.toCharArray()) {
+            if (c == '_') return true;
+        }
+        return false;
     }
 }

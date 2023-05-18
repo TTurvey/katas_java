@@ -29,27 +29,23 @@ class Validator1Test {
 
     @ParameterizedTest
     @CsvSource({
-            "abcdefgh, false",
-            "Abcdefgh, true",
-            "aBcdefgh, true",
-            "abCdefgh, true",
-            "abcDefgh, true",
-            "abcdEfgh, true",
-            "abcdeFgh, true",
-            "abcdefGh, true",
-            "abcdefgH, true",
-            "ABCDEFGH, true"
+            "ab, false",
+            "Ab, true",
+            "aB, true",
+            "AB, true"
         })
-    public void returns_true_if_input_has_at_least_one_capital(String input, Boolean expected) {
+    public void
+    returns_true_if_input_has_at_least_one_capital(String input, Boolean expected) {
         Boolean actual = pv.checkUppercase(input);
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvSource({
-            "ABCDEFGH, false",
-            "ABCDEFGh, true",
-            "ABCDEFgh, true"
+            "ab, true",
+            "Ab, true",
+            "aB, true",
+            "AB, false"
     })
     public void
     returns_true_if_input_has_at_least_one_lowercase(String input, Boolean expected) {
@@ -60,9 +56,9 @@ class Validator1Test {
 
     @ParameterizedTest
     @CsvSource({
-            "Abcdefgh, false",
-            "Abcdefg1, true",
-            "Abcdef12, true"
+            "ab, false",
+            "a1, true",
+            "12, true"
     })
     public void
     returns_true_if_input_has_at_least_one_number(String input, Boolean expected) {
@@ -73,9 +69,9 @@ class Validator1Test {
 
     @ParameterizedTest
     @CsvSource({
-            "A1cdefgh, false",
-            "A1cdefg_, true",
-            "A1cdef__, true"
+            "ab, false",
+            "a_, true",
+            "__, true"
     })
     public void
     returns_true_if_input_has_at_least_one_underscore(String input, Boolean expected) {
@@ -86,8 +82,8 @@ class Validator1Test {
 
     @ParameterizedTest
     @CsvSource({
-            "Ab1_efgh, true",
-            "Ab1defgh, false",
+            "Abcdef_1, true",
+            "Abcdef_, false",
             ", false"
     })
     public void

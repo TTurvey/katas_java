@@ -2,6 +2,7 @@ package org.example.passwordValidation;
 
 public class Validator1 implements PasswordValidator {
 
+    @Override
     public Boolean checkPassword(String input) {
         if (input == null) return false;
 
@@ -19,10 +20,12 @@ public class Validator1 implements PasswordValidator {
         return true;
     }
 
+    @Override
     public Boolean checkLength(String input) {
         return input.length() >= 8;
     }
 
+    @Override
     public Boolean checkUppercase(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isUpperCase(c)) return true;
@@ -30,6 +33,7 @@ public class Validator1 implements PasswordValidator {
         return false;
     }
 
+    @Override
     public Boolean checkLowercase(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isLowerCase(c)) return true;
@@ -37,6 +41,7 @@ public class Validator1 implements PasswordValidator {
         return false;
     }
 
+    @Override
     public Boolean checkNumber(String input) {
         for(char c : input.toCharArray()) {
             if (Character.isDigit(c)) return true;
@@ -44,6 +49,7 @@ public class Validator1 implements PasswordValidator {
         return false;
     }
 
+    @Override
     public Boolean checkUnderscore(String input) {
         for(char c : input.toCharArray()) {
             if (c == '_') return true;
